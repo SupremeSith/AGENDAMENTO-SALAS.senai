@@ -1,0 +1,56 @@
+{% extends "index.html" %}
+{% load static %}
+
+{% block body %}
+
+<div class="container">
+    <div class="sidebar gpt-sidebar-profile">
+        <!-- Foto do usuário -->
+        <img src="https://i.pinimg.com/564x/c4/34/d8/c434d8c366517ca20425bdc9ad8a32de.jpg" alt="Foto de perfil">
+        <!-- Nome e email -->
+        <h2>Carlos</h2>
+        <p>Carlosemail@gmail.com</p>
+    </div>
+    <div class="main-content gpt-main-content-profile">
+        <h1>Agendamentos</h1>
+        <p>Todas as Salas Agendadas de Usuario Null</p>
+
+        <!-- Salas do usuário -->
+
+        <a href="{% url 'salas' %}">  <button class="schedule-btn gpt-schedule-btn-profile">Agendar</button> </a>
+        <div class="cards-container gpt-cards-container-profile">
+            <div class="card gpt-card-profile">
+                <!-- Nome da sala -->
+                <h3>Auditório</h3>
+                <!-- Horário agendado -->
+                <p>09/10 às 15h00</p>
+                <a href="{% url 'detalhes' %}"><button>Detalhes</button> </a>
+
+            </div>
+            <!-- Outros cards aqui -->
+            <div class="card gpt-card-profile">
+                <!-- Nome da sala -->
+                <h3>C13</h3>
+                <!-- Horário agendado -->
+                <p>05/10 às 10h00</p>
+                <a href="{% url 'detalhes' %}"><button>Detalhes</button> </a>
+            </div>
+
+
+
+            <div class="card gpt-card-profile">
+                <!-- Nome da sala -->
+                <h3>Salão Principal</h3>
+                <!-- Horário agendado -->
+                <p>29/09 às 00:00</p>
+                <a href="{% url 'detalhes' %}"><button>Detalhes</button> </a>
+            </div>
+
+
+
+
+        </div>
+    </div>
+</div>
+
+{% endblock %}

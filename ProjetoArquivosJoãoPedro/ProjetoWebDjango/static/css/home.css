@@ -1,0 +1,59 @@
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+/* Estilo da Barra de Navegação */
+.navbar {
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.navbar ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.navbar ul li a {
+    text-decoration: none;
+    color: #000;
+    font-size: 14px;
+    padding: 8px 16px;
+    border-radius: 20px;
+    transition: background-color 0.3s;
+}
+
+.navbar ul li a:hover {
+    background-color: #f0f0f0;
+}
+
+/* Estilo do Conteúdo Principal */
+.main-content {
+    text-align: center;
+    margin-top: 50px;
+}
+
+.main-content h1 {
+    font-size: 48px;
+    font-weight: bold;
+}
+
+.main-content h1 span {
+    color: red;
+}
+
+.main-content p {
+    font-size: 18px;
+    color: #666;
+    margin-top: 10px;
+}
+
+
+

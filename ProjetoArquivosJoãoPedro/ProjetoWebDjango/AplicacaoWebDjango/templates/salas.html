@@ -1,0 +1,73 @@
+{% extends "index.html" %}
+{% load static %}
+
+{% block body %}
+<section class="article-grid">
+    <div class="article-heading">
+        <br>
+        <br>
+        <p>Ambientes SENAI</p>
+        <h1>Agende a sua sala </h1>
+    </div>
+    <div class="grid-container">
+        <div class="grid-row">
+            <div class="grid-column">
+                <div class="article-detail">
+                    <figure>
+                        <div class="article-thumb">
+                            <a href="{% url 'detalhes' %}" title="Eletro">
+                                <img src="https://www.sistemafibra.org.br/senai/gama/images/cursos/eletroeletronica/senai_gama_eletroeletronica.jpg" alt="Elétrica I">
+                                <div class="grid-overlay"></div>
+                            </a>
+                        </div>
+                        <figcaption class="article-detail--wrap">
+                            <div class="article-cat"><span>agendar</span></div>
+                            <a href="{% url 'detalhes' %}" title="Elétrica I" class="article-title">Elétrica I</a>
+                        </figcaption>
+                    </figure>
+                </div>
+            </div>
+
+            <div class="grid-column">
+                <div class="article-detail">
+                    <div class="article-detail">
+                        <figure>
+                            <div class="article-thumb">
+                                <a href="{% url 'detalhes' %}" title="Elétrica II">
+                                    <img src="https://senai2022.com/wp-content/uploads/2021/10/dbfdfk-1024x682.jpg" alt="Elétrica II">
+                                    <div class="grid-overlay"></div>
+                                </a>
+                            </div>
+                            <figcaption class="article-detail--wrap">
+                                <div class="article-cat"><span>agendar</span></div>
+                                <a href="{% url 'detalhes' %}" title="Elétrica II" class="article-title">Elétrica II</a>
+                            </figcaption>
+                        </figure>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid-column">
+                <div class="article-detail">
+                    <div class="article-detail">
+                        <figure>
+                            <div class="article-thumb">
+                                <a href="{% url 'detalhes' %}" title="Elétrica III">
+                                    <img src="https://arquivos.sfiec.org.br/sfiec/files/images/ELETROTECNICA(1).jpg" alt="Elétrica III">
+                                    <div class="grid-overlay"></div>
+                                </a>
+                            </div>
+                            <figcaption class="article-detail--wrap">
+                                <div class="article-cat"><span>Agendar</span></div>
+                                <a href="{% url 'detalhes' %}" title="Elétrica III" class="article-title">Elétrica III</a>
+                            </figcaption>
+                        </figure>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Continue com os outros elementos da grid -->
+        </div>
+    </div>
+</section>
+{% endblock %}

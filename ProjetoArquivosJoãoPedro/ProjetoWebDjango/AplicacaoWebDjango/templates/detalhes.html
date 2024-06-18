@@ -1,0 +1,48 @@
+{% extends "index.html" %}
+{% load static %}
+
+{% block body %}
+
+<main>
+    <div class="swiper mySwiper">
+        <div class="SlideContainer swiper-wrapper">
+            <div class="swiper-slide home-slide">
+                <div class="HomeContent">
+                    <div class="backButton">
+                        <a href="{% url 'perfil' %}">
+                            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed">
+                                <path d="m313-440 224 224-57 56-320-320 320-320 57 56-224 224h487v80H313Z"/>
+                            </svg>
+                        </a>
+                    </div>
+                    <h1>Sala<span class="stylized-name"> C13</span></h1>
+                    <p class="heroline">Sala de aula bem arejada com mesas individuais e suporte para aulas de longo período.</p>
+                    <div class="buttonGroup"><button>Edit</button><button>Delete</button></div>
+                </div>
+                <div class="SideImg">
+                    <img src="https://cronos-media.sesisenaisp.org.br//api/media/1-0/files?img=img_35_200127_153342f7-737a-404d-a249-b4781aff5949_o.jpg&tipo=p" alt="">
+                </div>
+            </div>
+            <div class="cardsContainer">
+                <div class="card">
+                    <h2>Equipamentos da Sala</h2>
+                    <ul>
+                        <li>40 notebooks, carregadores e mouses</li>
+                        <li>Projetor de vídeo</li>
+                        <li>Duas lousas brancas</li>
+                        <li>Dois computadores (norte e sul da sala)</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h2>Horário da Sala</h2>
+                    <ul>
+                        <li>Data: 19/06</li>
+                        <li>Horário: 10:00h até as 17:00h</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+{% endblock %}
