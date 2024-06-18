@@ -1,0 +1,86 @@
+{% extends "indexProfessor.html" %}
+{% load static %}
+
+{% block body %}
+<div class="container1">
+    <h1>Agendamento de salas</h1>
+    <p>Apenas permissão dos Professores e coordenadores</p>
+    <div class="table-actions">
+        <form id="deleteForm" method="POST" action="{% url 'homepageProfessor' %}">
+            {% csrf_token %}
+            <input type="hidden" name="delete" value="delete">
+            <input type="hidden" id="selectedIds" name="selected_ids">
+        </form>
+        <input type="text" id="searchInput" placeholder="Buscar por nome da sala">
+        <button id="searchBtn" class="searchBtn">Buscar</button>
+        <button id="filterBtn">Filters</button>
+        <button id="addBtn" class="add-new" {% if all_booked %}disabled{% endif %}>Agendar</button>
+    </div>
+    <table class="student-table">
+        <thead>
+            <tr>
+                <th><input type="checkbox" id="selectAll"><label for="selectAll"></label></th>
+                <th>Sala</th>
+                <th>Descrição</th>
+                <th>Equipamentos</th>
+                <th>Agendamento</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for item in dadosSalas %}
+                <tr>
+                    <td><input type="checkbox" class="select-row" data-id="{{ item.id }}" data-sala="{{ item.salas }}" data-numero="{{ item.numero }}" id="checkbox{{ forloop.counter }}"><label for="checkbox{{ forloop.counter }}"></label></td>
+                    <td>{{ item.salas }}</td>
+                    <td>{{ item.descricao }}</td>
+                    <td>{{ item.equipamentos }}</td>
+                    <td class="status {% if all_booked %}inactive{% else %}active{% endif %}">{{ item.agendamento }}</td>
+                </tr>
+            {% endfor %}
+            {% if all_booked %}
+                <tr>
+                    <td colspan="6" style="text-align:center; color:red;">Indisponível</td>
+                </tr>
+            {% endif %}
+        </tbody>
+    </table>
+</div>
+
+<!-- Modal -->
+<div id="addRoomModal" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2>Realizar Agendamento</h2>
+        <form id="addRoomForm" method="POST" action="{% url 'homepageProfessor' %}">
+            {% csrf_token %}
+            <input type="hidden" id="salaId" name="sala"> <!-- ID da sala a ser atualizado -->
+            <label for="roomName">Sala:</label>
+            <input type="text" id="roomName" name="sala_nome" placeholder="Nome da Sala" readonly>
+
+            <label for="roomDay">Data:</label>
+            <input type="date" id="roomDay" name="dias">
+            
+            <label for="roomPeriod">Período:</label>
+            <select id="roomPeriod" name="periodo">
+                <option value="manhaA">Manhã A</option>
+                <option value="manhaB">Manhã B</option>
+                <option value="tardeA">Tarde A</option>
+                <option value="tardeB">Tarde B</option>
+                <option value="noiteA">Noite A</option>
+            </select>
+            
+
+            <button type="submit" class="btnAgendar">Agendar</button>
+        </form>
+    </div>
+</div>
+
+<div id="filterModal" class="modal">
+    <div class="modal-content">
+        <h2>Escolha o tipo de filtro</h2>
+        <button id="filterAZBtn">A - Z</button>
+        <button id="filterZABtn">Ordenar de Z a A</button>
+
+    </div>
+</div>
+
+{% endblock %}
